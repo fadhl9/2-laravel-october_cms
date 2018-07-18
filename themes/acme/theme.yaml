@@ -1,0 +1,15 @@
+name: Acme
+description: 'Simple Bootswatch theme'
+author: Fadhl
+homepage: 'https://www.eduonix.com'
+code: ''
+form:
+  fields:
+    site_name:
+      lable: Site name
+      comment: The global website name
+      default: Acme
+    site_description:
+      lable: Site description
+      comment: The global website description
+      default: lorem dasf asdf adfgv dfg kjjlaf sdfhedfbuwerf  wefiwekdfh ow ejdkjf ijw iu

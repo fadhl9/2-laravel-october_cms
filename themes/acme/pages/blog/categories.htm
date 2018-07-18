@@ -1,0 +1,34 @@
+title = "Blog Category"
+url = "/blog/category/:slug/:page?"
+layout = "default"
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 10
+noPostsMessage = "No posts found"
+sortOrder = "published_at desc"
+categoryPage = "blog/category"
+postPage = "blog/post"
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "blog/category"
+==
+{% set categories = blogCategories.categories %}
+{% set currentCategorySlug = blogCategories.currentCategorySlug %}
+
+<div class="list-group">
+    {% for category in categories %}
+        {% set postCount = category.post_count %}
+        <a
+            href="{{ category.url }}"
+            class="list-group-item {{ category.slug == currentCategorySlug ? 'active' }}"
+            >{{ category.name }}
+            {% if postCount %}
+                <span class="badge">{{ postCount }}</span>
+            {% endif %}
+        </a> 
+    {% endfor %}
+</div>
